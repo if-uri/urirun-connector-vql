@@ -53,13 +53,19 @@ def _program_objects(result: dict) -> list[dict]:
     return objs
 
 
+def _int(v: Any) -> int | None:
+    return int(round(float(v))) if v is not None else None
+
+
 def _region_summary(o: dict) -> dict:
-    """Compact, click-ready view of a VQL region: center point + geometry + colour."""
+    """Compact, click-ready view of a VQL region: center point + geometry + colour. ``center``
+    is rounded to INTEGER pixels so it drops straight into a kvm click (whose x/y are ints) —
+    VQL keeps sub-pixel floats internally, but a click target must be a pixel."""
     prim = (o.get("primitives") or [{}])[0].get("params") or {}
     return {
         "id": o.get("id"),
-        "center": [o.get("center_x"), o.get("center_y")],
-        "width": prim.get("width"), "height": prim.get("height"),
+        "center": [_int(o.get("center_x")), _int(o.get("center_y"))],
+        "width": _int(prim.get("width")), "height": _int(prim.get("height")),
         "color": (o.get("style") or {}).get("color"),
         "area": float(prim.get("width") or 0) * float(prim.get("height") or 0),
     }
