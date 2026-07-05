@@ -1,0 +1,5 @@
+[console_scripts]
+urirun-vql = urirun_connector_vql.core:main
+
+[urirun.bindings]
+vql = urirun_connector_vql.core:urirun_bindings

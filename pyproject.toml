@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "urirun-connector-vql"
+version = "0.1.0"
+description = "Native vql:// URI surface over the VQL package (screenshot -> structured scene) for ifuri and urirun"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Tom Sapletta" }]
+dependencies = ["urirun>=0.4.14", "vql>=0.1.0"]
+
+[project.scripts]
+urirun-vql = "urirun_connector_vql.core:main"
+
+[project.entry-points."urirun.bindings"]
+vql = "urirun_connector_vql.core:urirun_bindings"
+
+[tool.setuptools.packages.find]
+include = ["urirun_connector_vql*"]
+
+[tool.setuptools.package-data]
+urirun_connector_vql = ["connector.manifest.json"]

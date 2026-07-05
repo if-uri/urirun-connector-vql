@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: urirun-connector-vql
+Version: 0.1.0
+Summary: Native vql:// URI surface over the VQL package (screenshot -> structured scene) for ifuri and urirun
+Author: Tom Sapletta
+License: Apache-2.0
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: urirun>=0.4.14
+Requires-Dist: vql>=0.1.0
+
+# urirun-connector-vql
+
+Native `vql://` URI surface over the [VQL](../../oqlos/vql) package: screenshot → structured scene (regions/objects with geometry, dominant colours, window title). Wayland-proof visual grounding that reads pixels, not the window manager.
+
+See `../urirun/docs/URI_NATIVE_CONNECTOR_CHECKLIST.md` and `../urirun/docs/RESOLVE_FIRST_CONTROL_PLANE.md`.

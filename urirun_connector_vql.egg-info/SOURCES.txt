@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+tests/test_vql.py
+urirun_connector_vql/__init__.py
+urirun_connector_vql/connector.manifest.json
+urirun_connector_vql/core.py
+urirun_connector_vql.egg-info/PKG-INFO
+urirun_connector_vql.egg-info/SOURCES.txt
+urirun_connector_vql.egg-info/dependency_links.txt
+urirun_connector_vql.egg-info/entry_points.txt
+urirun_connector_vql.egg-info/requires.txt
+urirun_connector_vql.egg-info/top_level.txt

@@ -1,0 +1,24 @@
+{
+  "id": "vql",
+  "name": "VQL",
+  "status": "available",
+  "category": "Vision",
+  "summary": "Analyze a screenshot into a structured scene (regions/objects with geometry, dominant colours, window title, scene class) through vql:// routes — Wayland-proof visual grounding that reads pixels, not the window manager.",
+  "description": "VQL (Visual Query Language) turns a screenshot into a structured program of regions and objects. This connector serves that analysis as vql:// URI routes so a urirun node, flow, or readiness kernel can compose visual understanding with capture (kvm) and decision (urivision) in a resolve-first control plane. Because it reads pixels, it grounds UI targets on GNOME-Wayland where window enumeration is blocked by the OS. Read-only analysis runs in-process; vql is imported lazily so the connector stays light (no heavy deps on the enumeration path).",
+  "useCases": [
+    "Ground a UI target by text on Wayland without a window list (image/query/find).",
+    "Turn a captured screen into a structured scene for a planner (image/query/analyze).",
+    "Diagnose whether a capture is usable (non-blank) before analysing it.",
+    "Feed regions to a decision layer (urivision) or a click point to kvm HID."
+  ],
+  "flowExample": [
+    "kvm://host/screen/query/capture",
+    "vql://host/image/query/diagnose",
+    "vql://host/image/query/analyze",
+    "vql://host/image/query/find"
+  ],
+  "requires": [
+    "python>=3.10",
+    "vql>=0.1.0"
+  ]
+}
